@@ -2,8 +2,8 @@ The SOLID design principles help us create maintainable, reusable, and flexible 
 
 Here is what each letter in the acronym stands for:
 
-**S**: Single responsibility principle.<br />
-**O**: Open–closed principle.<br />
-**L**: Liskov substitution principle.<br />
-**I**: Interface segregation principle.<br />
-**D**: Dependency inversion principle.<br />
+
+
+<p align="center">
+  <img width="523" alt="Screenshot 2024-02-27 at 00 03 56" src="https://github.com/devaaks/low-level-design/assets/16061289/33a2791f-349b-4f2b-8a6c-09ed8e199e79">
+</p>
