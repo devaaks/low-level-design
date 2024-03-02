@@ -2,7 +2,7 @@
 
 This principle suggests that classes should be open for extension but closed for modification. This means that you should be able to add new functionality without altering existing code.
 
-# Benefits
+### Benefits
 
 * Allows adding new features without altering existing code, reducing the risk of breaking functionality and introducing bugs.
 * Facilitates loose coupling between components, making it easier to manage dependencies.
