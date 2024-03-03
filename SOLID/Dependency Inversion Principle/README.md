@@ -4,3 +4,40 @@ This principle encourages high-level modules to depend on abstractions (interfac
 
 ### Example 
 Suppose you have a music player application. Instead of having the high-level module directly depend on specific audio formats (e.g., MP3, WAV), you would define an abstraction (interface) for audio playback. The high-level module would depend on this abstraction, and the low-level audio format classes would implement it.
+
+```java
+// Before DIP
+class MusicPlayer {
+    void playMP3() { /* ... */ }
+}
+
+class AudioApp {
+    private MusicPlayer musicPlayer = new MusicPlayer();
+
+    void playAudio() {
+        musicPlayer.playMP3();
+    }
+}
+
+// After DIP
+interface AudioPlayer {
+    void play();
+}
+
+class MP3Player implements AudioPlayer {
+    @Override
+    public void play() { /* ... */ }
+}
+
+class AudioApp {
+    private AudioPlayer audioPlayer;
+
+    AudioApp(AudioPlayer audioPlayer) {
+        this.audioPlayer = audioPlayer;
+    }
+
+    void playAudio() {
+        audioPlayer.play();
+    }
+}
+```
