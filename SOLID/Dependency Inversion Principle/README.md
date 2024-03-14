@@ -41,3 +41,12 @@ class AudioApp {
     }
 }
 ```
+### DIP Implementation
+
+<p align="center">
+    <img width="429" alt="Screenshot 2024-03-04 at 23 59 04" src="https://github.com/devaaks/low-level-design/assets/16061289/d7d6470e-c6d6-4cf3-8ef4-0759219b83ef">
+</p>
+
+
+
+
