@@ -15,7 +15,7 @@ In the Factory Method pattern:
 
 <br>
 
-<details>
+<details open>
 <summary><b>Code</b></summary>
 
 ```typescript
@@ -91,7 +91,6 @@ pizza2.prepare();  // Output: Preparing Pepperoni Pizza
 <br>
 
 <details>
-
 <summary><b>Benefits</b></summary>
 
 
