@@ -1,17 +1,11 @@
-# Factory
+# Abstract Factory
 
-It provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+It is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+In other words, it allows you to create objects without specifying their exact type. Instead, it defines an interface (or abstract class) for creating families of related objects, and concrete implementations of this interface produce objects of specific types.
 
 **Example time -** 
 
-Imagine you're running a pizza shop. You have different types of pizzas like cheese, pepperoni, and veggie. Customers come in and order pizzas. Now, think about how you create these pizzas.
-
-In the Factory Method pattern:
-
-1. You have a base interface or abstract class called `Pizza`.
-2. Each type of `pizza` (cheese, pepperoni, veggie) is a subclass of `Pizza`.
-3. You have a `PizzaFactory` class responsible for creating pizzas. It has a method like `createPizza(type)` which takes the type of pizza as input and returns the corresponding pizza object.
-4. When a customer orders a pizza, you call `PizzaFactory.createPizza(type)` to get the specific type of pizza they want.
 
 <br>
 
