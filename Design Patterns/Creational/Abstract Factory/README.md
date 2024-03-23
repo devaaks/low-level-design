@@ -4,104 +4,78 @@ It is a creational design pattern that provides an interface for creating famili
 
 In other words, it allows you to create objects without specifying their exact type. Instead, it defines an interface (or abstract class) for creating families of related objects, and concrete implementations of this interface produce objects of specific types.
 
-**Example time -** 
-
-
 <br>
 
-<details open>
+<details>
 <summary><b>Code</b></summary>
 
 ```typescript
-// Step 1: Define the Pizza interface or abstract class
-interface Pizza {
-    prepare(): void;
-    bake(): void;
-    cut(): void;
-    box(): void;
+// Abstract Product: Computer
+interface Computer {
+    specs(): string;
 }
 
-// Step 2: Define subclasses for each type of pizza
-class CheesePizza implements Pizza {
-    prepare(): void {
-        console.log("Preparing Cheese Pizza");
-    }
+// Concrete Products: Laptop and Desktop
+class Laptop implements Computer {
+    constructor(private processor: string, private ram: string, private storage: string) {}
 
-    bake(): void {
-        console.log("Baking Cheese Pizza");
-    }
-
-    cut(): void {
-        console.log("Cutting Cheese Pizza");
-    }
-
-    box(): void {
-        console.log("Boxing Cheese Pizza");
+    specs(): string {
+        return `Laptop: ${this.processor}, ${this.ram}, ${this.storage}`;
     }
 }
 
-class PepperoniPizza implements Pizza {
-    prepare(): void {
-        console.log("Preparing Pepperoni Pizza");
-    }
+class Desktop implements Computer {
+    constructor(private processor: string, private ram: string, private storage: string) {}
 
-    bake(): void {
-        console.log("Baking Pepperoni Pizza");
-    }
-
-    cut(): void {
-        console.log("Cutting Pepperoni Pizza");
-    }
-
-    box(): void {
-        console.log("Boxing Pepperoni Pizza");
+    specs(): string {
+        return `Desktop: ${this.processor}, ${this.ram}, ${this.storage}`;
     }
 }
 
-// Step 3: Define the PizzaFactory class
-class PizzaFactory {
-    createPizza(type: string): Pizza {
-        if (type === "cheese") {
-            return new CheesePizza();
-        } else if (type === "pepperoni") {
-            return new PepperoniPizza();
-        } else {
-            throw new Error("Invalid pizza type");
-        }
+// Abstract Factory Interface
+interface ComputerFactory {
+    createComputer(): Computer;
+}
+
+// Concrete Factories: LaptopFactory and DesktopFactory
+class LaptopFactory implements ComputerFactory {
+    createComputer(): Computer {
+        return new Laptop("Intel i7", "16GB", "512GB SSD");
     }
 }
 
-// Step 4: Using the Factory Method to create pizzas
-const factory = new PizzaFactory();
-const pizza1 = factory.createPizza("cheese");
-pizza1.prepare();  // Output: Preparing Cheese Pizza
+class DesktopFactory implements ComputerFactory {
+    createComputer(): Computer {
+        return new Desktop("AMD Ryzen 9", "32GB", "1TB HDD");
+    }
+}
 
-const pizza2 = factory.createPizza("pepperoni");
-pizza2.prepare();  // Output: Preparing Pepperoni Pizza
+// Client Code
+function buildComputer(factory: ComputerFactory): void {
+    const computer = factory.createComputer();
+    console.log("Built a", computer.specs());
+}
+
+// Usage
+const laptopFactory = new LaptopFactory();
+const desktopFactory = new DesktopFactory();
+
+buildComputer(laptopFactory);  // Output: Built a Laptop: Intel i7, 16GB, 512GB SSD
+buildComputer(desktopFactory); // Output: Built a Desktop: AMD Ryzen 9, 32GB, 1TB HDD
+
 ```
 
 </details>
 
 <br>
 
-<details>
+<details open>
 <summary><b>Benefits</b></summary>
 
+1. You can be sure that the products you’re getting from a factory are compatible with each other.
+2. You avoid tight coupling between concrete products and client code.
+3. Single Responsibility Principle. You can extract the product creation code into one place, making the code easier to support.
+4. Open/Closed Principle. You can introduce new variants of products without breaking existing client code.
 
-The Factory Method pattern offers several benefits in software design:
-
-1. **Encapsulation**: It encapsulates the object creation logic within the factory class. This means that the client code doesn't need to know how objects are created, only that they are created by the factory.
-
-2. **Flexibility**: It allows for easy extension or modification of the object creation process. You can introduce new types of objects (in this case, pizzas) by simply adding new subclasses and modifying the factory method accordingly, without changing existing client code.
-
-3. **Abstraction**: By using interfaces or abstract classes, the Factory Method pattern promotes programming to an interface rather than an implementation. This makes the system more flexible and easier to maintain.
-
-4. **Centralized Control**: It centralizes the creation logic in one place (the factory class), making it easier to manage and maintain. Any changes or updates to the creation process can be made in a single location.
-
-5. **Decoupling**: It decouples the client code from the concrete classes being instantiated. Clients interact with the factory interface, not directly with the concrete classes, which reduces dependencies and promotes loose coupling.
-
-6. **Code Reusability**: It promotes code reusability by providing a mechanism for creating similar objects across different parts of an application. Once the factory is implemented, it can be reused to create objects wherever needed.
-
-Overall, the Factory Method pattern enhances code maintainability, extensibility, and scalability by providing a structured way to create objects while hiding the details of instantiation from client code.
 
 </details>
