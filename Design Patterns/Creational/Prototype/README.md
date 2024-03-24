@@ -4,7 +4,7 @@ It is used to create objects based on a template of an existing object through c
 
 <br>
 
-<details open>
+<details>
 <summary><b>Code</b></summary>
 
 ```java
