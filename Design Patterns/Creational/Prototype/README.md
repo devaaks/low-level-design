@@ -2,6 +2,12 @@
 
 It is used to create objects based on a template of an existing object through cloning. The main idea behind this pattern is to create new objects by copying an existing object, known as the prototype, rather than instantiating new objects from scratch.
 
+### Example
+
+Suppose a user creates a document with a specific layout, fonts, and styling, and wishes to create similar documents with slight modifications.
+
+Instead of starting from scratch each time, the user can use the Prototype pattern. The original document becomes the prototype, and new documents are created by cloning this prototype. This approach ensures that the new documents inherit the structure and styling of the original document while allowing for customization.
+
 <p align="center">
   <img width="640" height="600" src="https://github.com/devaaks/low-level-design/assets/16061289/05cadb98-ad23-4964-8a84-376969ba082d">
 </p>
