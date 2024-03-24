@@ -2,8 +2,12 @@
 
 It is used to construct a complex object step by step. It allows the construction of a product in a step-by-step fashion, where the construction process can vary based on the type of product being built. The pattern separates the construction of a complex object from its representation, allowing the same construction process to create different representations.
 
-### Components of the Builder Design Pattern
+<p align="center">
+  <img width="650" height="450" src="https://github.com/devaaks/low-level-design/assets/16061289/144044af-d846-4076-8ad8-d5328d4378f4">
+</p>
 
+<details open>
+<summary><b>Components of the Builder Design Pattern</b></summary>
 1. **Product**
 
     The Product is the complex object that the Builder pattern is responsible for constructing.
@@ -37,15 +41,7 @@ It is used to construct a complex object step by step. It allows the constructio
     It creates a Builder object and passes it to the Director to initiate the construction process.
     The Client may retrieve the final product from the Builder after construction is complete.
 
-### Example
-
-Suppose a user creates a document with a specific layout, fonts, and styling, and wishes to create similar documents with slight modifications.
-
-Instead of starting from scratch each time, the user can use the Prototype pattern. The original document becomes the prototype, and new documents are created by cloning this prototype. This approach ensures that the new documents inherit the structure and styling of the original document while allowing for customization.
-
-<p align="center">
-  <img width="640" height="600" src="">
-</p>
+</details>
 
 <br>
 
