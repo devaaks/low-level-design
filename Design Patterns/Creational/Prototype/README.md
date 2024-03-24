@@ -2,6 +2,10 @@
 
 It is used to create objects based on a template of an existing object through cloning. The main idea behind this pattern is to create new objects by copying an existing object, known as the prototype, rather than instantiating new objects from scratch.
 
+<p align="center">
+  <img width="640" height="600" src="https://github.com/devaaks/low-level-design/assets/16061289/05cadb98-ad23-4964-8a84-376969ba082d">
+</p>
+
 <br>
 
 <details>
