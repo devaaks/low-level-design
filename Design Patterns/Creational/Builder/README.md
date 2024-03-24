@@ -6,7 +6,7 @@ It is used to construct a complex object step by step. It allows the constructio
   <img width="650" height="450" src="https://github.com/devaaks/low-level-design/assets/16061289/144044af-d846-4076-8ad8-d5328d4378f4">
 </p>
 
-<details open>
+<details>
 <summary><b>Components of the Builder Design Pattern</b></summary>
 1. **Product**
 
