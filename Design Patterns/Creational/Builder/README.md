@@ -52,7 +52,89 @@ Instead of starting from scratch each time, the user can use the Prototype patte
 <details>
 <summary><b>Code</b></summary>
 
-```java
+```typescript
+
+    // Product: Computer
+    class Computer {
+        private cpu: string;
+        private memory: number;
+        private storage: number;
+        
+        constructor(cpu: string, memory: number, storage: number) {
+            this.cpu = cpu;
+            this.memory = memory;
+            this.storage = storage;
+        }
+
+        public describe(): void {
+            console.log(`Computer Specs - CPU: ${this.cpu}, Memory: ${this.memory}GB, Storage: ${this.storage}GB`);
+        }
+    }
+
+    // Builder interface
+    interface ComputerBuilder {
+        addCPU(cpu: string): void;
+        addMemory(memory: number): void;
+        addStorage(storage: number): void;
+        getResult(): Computer;
+    }
+
+    // Concrete Builder: Gaming Computer Builder
+    class GamingComputerBuilder implements ComputerBuilder {
+        private computer: Computer;
+
+        constructor() {
+            this.computer = new Computer('Gaming CPU', 16, 1000);
+        }
+
+        addCPU(cpu: string): void {
+            // Gaming computer comes with a predefined CPU
+            console.log("Gaming CPU already added.");
+        }
+
+        addMemory(memory: number): void {
+            // Gaming computer typically has high memory
+            this.computer = new Computer(this.computer.describe(), memory, this.computer.storage);
+        }
+
+        addStorage(storage: number): void {
+            // Gaming computer typically has large storage
+            this.computer = new Computer(this.computer.describe(), this.computer.memory, storage);
+        }
+
+        getResult(): Computer {
+            return this.computer;
+        }
+    }
+
+    // Director
+    class ComputerDirector {
+        private builder: ComputerBuilder;
+
+        constructor(builder: ComputerBuilder) {
+            this.builder = builder;
+        }
+
+        construct(): void {
+            this.builder.addMemory(16);
+            this.builder.addStorage(1000);
+        }
+    }
+
+    // Client code
+    function clientCode(): void {
+        const gamingComputerBuilder = new GamingComputerBuilder();
+        const director = new ComputerDirector(gamingComputerBuilder);
+
+        director.construct();
+
+        const gamingComputer = gamingComputerBuilder.getResult();
+        gamingComputer.describe();
+    }
+
+    // Run the client code
+    clientCode();
+
 ```
 </details>
 
