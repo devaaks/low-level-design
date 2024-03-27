@@ -2,14 +2,13 @@
 
 The Chain of Responsibility passes requests along a chain of handlers. Each handler decides either to process the request or to pass it to the next handler in the chain.
 
-This pattern is mainly used to introduce loose coupling to the application. It basically decouples the sender and receiver of a particular request based on the type.
+This pattern is mainly used to introduce loose coupling to the application. It decouples the sender and receiver of a particular request based on the type.
 
+![Screenshot 2024-03-26 at 11 53 04 PM](https://github.com/devaaks/low-level-design/assets/16061289/80634f73-1463-466d-ba74-437977160aa3)
 
 **Examples** 
 
 Middlewares in Express are somehow handlers that either process a request or pass it to the next handler.
-
-<br>
 
 **Usage**
 
