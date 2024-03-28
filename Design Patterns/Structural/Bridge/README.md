@@ -14,7 +14,7 @@ Here's an explanation of the Bridge Pattern in TypeScript:
 
 4. Concrete Implementor: This is the actual implementation of the Implementor interface. There can be multiple concrete implementations providing different ways to perform the operations defined by the Implementor interface.
 
-<details>
+<details open>
 <summary><b>Code</b></summary>
 
 ```typescript
